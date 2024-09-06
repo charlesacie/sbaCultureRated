@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title><%= artist.name %> - Rating</title>
+</head>
+<body>
+  <div class="container">
+    <h1><%= artist.name %></h1>
+    <img src="<%= artist.image %>" alt="<%= artist.name %>" />
+    
+    <section class="biography">
+      <h2>Biography</h2>
+      <p>
+      
+        <%= artist.name %> is a well-known artist famous for versatility, popularity, and longevity. Check out the link below and return with your rating.
+      </p>
+      
+    </section>
+    
+    
+    <section class="ratings">
+      <h2>Artist Ratings</h2>
+      <div class="rating">
+        <p><strong>Versatility:</strong> <%= artist.versatility %>/10</p>
+      </div>
+      <div class="rating">
+        <p><strong>Popularity:</strong> <%= artist.popularity %>/10</p>
+      </div>
+      <div class="rating">
+        <p><strong>Longevity:</strong> <%= artist.longevity %>/10</p>
+      </div>
+    </section>
+
+    
+    <section class="user-rating">
+      <h2>Rate This Artist</h2>
+      <form action="/artist/<%= artist.id %>/rate" method="POST">
+        <label for="userRating">Your Rating (1-10):</label>
+        <input type="number" name="userRating" id="userRating" min="1" max="10" required>
+        <button type="submit">Submit Rating</button>
+      </form>
+    </section>
+
+    <a href="/artist">Back to Artist List</a>
+    <a href="/">Go Back to Homepage</a>
+  </div>
+</body>
+</html>
